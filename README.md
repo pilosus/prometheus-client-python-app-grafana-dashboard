@@ -1,12 +1,13 @@
 [Grafana](https://grafana.com/grafana) Dashboard for
 [Prometheus](https://prometheus.io/) official [Python
-client](https://github.com/prometheus/client_python).
+client](https://github.com/prometheus/client_python) with Flask Web
+Application metrics in focus.
 
 ## Screenshots ##
 
-![Flask Web App Grafana Dashboard 1](/docs/flask-app-1.png?raw=true)
-![Flask Web App Grafana Dashboard 2](/docs/flask-app-2.png?raw=true)
-![Flask Web App Grafana Dashboard 3](/docs/flask-app-3.png?raw=true)
+![Flask Web App Grafana Dashboard 1](/docs/flask-app-1.png?raw=true "RPS and Latency panels")
+![Flask Web App Grafana Dashboard 2](/docs/flask-app-2.png?raw=true "Error panels, CPU, Memory, file descriptors usage ")
+![Flask Web App Grafana Dashboard 3](/docs/flask-app-3.png?raw=true "App's uptime, version, deployment env, Python interpretor info")
 
 ## About ##
 

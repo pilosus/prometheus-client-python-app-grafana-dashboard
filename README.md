@@ -1,7 +1,10 @@
-[Grafana](https://grafana.com/grafana) Dashboard for
-[Prometheus](https://prometheus.io/) official [Python
-client](https://github.com/prometheus/client_python) with Flask Web
-Application metrics in focus.
+Grafana dashboard designed for a Flask web application that exposes
+metrics with
+[flask_prometheus_metrics](https://github.com/pilosus/flask_prometheus_metrics)
+Flask extension
+
+Dashboard aimed at the apps deployed with Kubernetes, although it can
+be easily tweaked to be infrastructure-agnostic.
 
 ## Screenshots ##
 
@@ -9,13 +12,19 @@ Application metrics in focus.
 ![Flask Web App Grafana Dashboard 2](/docs/flask-app-2.png?raw=true "Error panels, CPU, Memory, file descriptors usage ")
 ![Flask Web App Grafana Dashboard 3](/docs/flask-app-3.png?raw=true "App's uptime, version, deployment env, Python interpretor info")
 
-## About ##
+## Usage ##
 
-The dashboard designed for a [Flask](http://flask.pocoo.org/) web
-application. Specifically it's been used in
-[Pili](https://github.com/pilosus/pili/blob/master/pili/app.py#L62)
-web app developed with [Kubernetes](https://kubernetes.io/)
-orchestration in mind.
+1. Install [flask_prometheus_metrics](https://github.com/pilosus/flask_prometheus_metrics) exporter to your Flask application
+2. Make Prometheus scraping your app's ``/metrics`` endpoint
+3. Import [flask-web-app.json](flask-web-app.json) at ``https://<your-grafana-domain>.tld/dashboard/import``
+
+If you do not deploy your app in Kubernetes you may need to tweak
+[flask-web-app.json](flask-web-app.json) ``pod`` labels to meet your
+needs. Instead of ``pod`` you may use ``instance`` or ``hostname`` or
+other label names in depending on how your Prometheus handle your
+app's hostname.
+
+## Panel ##
 
 12 panels covers the following metrics:
 
@@ -44,15 +53,3 @@ Dashboard provides variables:
 
 The variables allow to change some panels charts grouing, intervals,
 labels selection.
-
-## Usage ##
-
-1. Tweak dashboard JSON file ``flask-web-app.json`` to fit your
-   metrics and needs (take a look at the original app's metrics
-   [here](https://github.com/pilosus/pili/blob/master/pili/app.py))
-2. Import JSON at ``/dashboard/import``
-
-## License ##
-
-The dashboard configuration licensed under the MIT License (MIT). See
-``LICENSE`` file.

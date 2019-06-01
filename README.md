@@ -21,8 +21,8 @@ be easily tweaked to be infrastructure-agnostic.
 If you do not deploy your app in Kubernetes you may need to tweak
 [flask-web-app.json](flask-web-app.json) ``pod`` labels to meet your
 needs. Instead of ``pod`` you may use ``instance`` or ``hostname`` or
-other label names in depending on how your Prometheus handle your
-app's hostname.
+other label name depending on how your Prometheus handle your app's
+hostname.
 
 ## Panel ##
 

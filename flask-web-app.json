@@ -92,11 +92,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(app_request_count_total{pod=~\"$pod\", exported_endpoint=~\"$endpoint\", method=~\"$method\"}[$interval])",
+          "expr": "rate(app_request_count_total{pod=~\"$pod\", endpoint=~\"$endpoint\", method=~\"$method\"}[$interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{ pod }} - {{ exported_endpoint }}",
+          "legendFormat": "{{ pod }} - {{ endpoint }}",
           "refId": "A"
         }
       ],
@@ -187,11 +187,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(app_request_latency_seconds_sum{pod=~\"$pod\", exported_endpoint=~\"$endpoint\", method=~\"$method\"}[$interval]) \n/ \nrate(app_request_latency_seconds_count{pod=~\"$pod\", exported_endpoint=~\"$endpoint\", method=~\"$method\"}[$interval])",
+          "expr": "rate(app_request_latency_seconds_sum{pod=~\"$pod\", endpoint=~\"$endpoint\", method=~\"$method\"}[$interval]) \n/ \nrate(app_request_latency_seconds_count{pod=~\"$pod\", endpoint=~\"$endpoint\", method=~\"$method\"}[$interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{ method }} {{ pod }}{{ exported_endpoint }}",
+          "legendFormat": "{{ method }} {{ pod }}{{ endpoint }}",
           "refId": "A"
         }
       ],
@@ -486,11 +486,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "app_request_count_total{http_status=~\"$error_code\", pod=~\"$pod\", method=~\"$method\", exported_endpoint=~\"$endpoint\"}",
+          "expr": "app_request_count_total{http_status=~\"$error_code\", pod=~\"$pod\", method=~\"$method\", endpoint=~\"$endpoint\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{ http_status }} {{ pod }} {{ exported_endpoint }}",
+          "legendFormat": "{{ http_status }} {{ pod }} {{ endpoint }}",
           "refId": "A"
         },
         {
@@ -1279,14 +1279,14 @@
         "allValue": null,
         "current": {},
         "datasource": "$datasource",
-        "definition": "label_values(app_request_latency_seconds_bucket, exported_endpoint)",
+        "definition": "label_values(app_request_latency_seconds_bucket, endpoint)",
         "hide": 0,
         "includeAll": true,
         "label": "Endpoint",
         "multi": true,
         "name": "endpoint",
         "options": [],
-        "query": "label_values(app_request_latency_seconds_bucket, exported_endpoint)",
+        "query": "label_values(app_request_latency_seconds_bucket, endpoint)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
